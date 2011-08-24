@@ -31,7 +31,7 @@ In your gem:
   end
 
 Using your gem:
-  some = CoolGem.SomeClass.new
+  some = CoolGem::SomeClass.new
   some.do_something
 
 By default will be logged in STDOUT using log level :info:
