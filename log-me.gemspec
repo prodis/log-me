@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Prodis a.k.a. Fernando Hamasaki"]
   s.date = %q{2011-08-24}
-  s.description = %q{A simple way to configure log in your application.}
+  s.description = %q{LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses.}
   s.email = %q{prodis@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -19,10 +19,12 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "README.rdoc",
     "Rakefile",
     "lib/log-me.rb",
     "lib/logme/version.rb",
+    "log-me.gemspec",
     "spec/log-me_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -31,7 +33,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.7")
   s.rubygems_version = %q{1.6.1}
-  s.summary = %q{A simple way to configure log in your application.}
+  s.summary = %q{A simple way to configure log in your gem.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

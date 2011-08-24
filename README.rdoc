@@ -1,19 +1,73 @@
-= log-me
+= LogMe
 
-Description goes here.
+A simple way to configure log in your gem.
 
-== Contributing to log-me
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses.
+
+== Instalation
+
+=== Gemfile
+  gem 'log-me'
+
+=== Command line
+  $ gem install log-me
+
+== Usage
+
+In your gem:
+  require 'log-me'
+
+  module CoolGem
+    extend LogMe
+  end
+
+  module CoolGem
+    class SomeClass
+      def do_something
+        # do something and log
+        CoolGem.log "I am logging something here."
+      end
+    end
+  end
+
+Using your gem:
+  some = CoolGem.SomeClass.new
+  some.do_something
+
+By default will be logged in STDOUT using log level :info:
+  I, [2011-08-24T01:22:52.677395 #3026]  INFO -- : I am logging something here.
+
+Your gem consumer can configure the logger:
+  CoolGem.configure_me do |config|
+    config.log_enabled = false   # Disable log
+    config.log_level = :debug    # Change the log level
+    config.logger = Rails.logger # Use the Rails logger
+  end
 
 == Copyright
 
-Copyright (c) 2011 Prodis. See LICENSE.txt for
-further details.
+(The MIT License)
+
+{Prodis a.k.a. Fernando Hamasaki}[http://prodis.blog.br]
+
+Copyright (c) 2011 Prodis
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
