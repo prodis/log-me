@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{log-me}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Prodis a.k.a. Fernando Hamasaki"]
-  s.date = %q{2011-08-24}
-  s.description = %q{LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses.}
+  s.date = %q{2011-08-28}
+  s.description = %q{LogMe is a simple way to configure log in your gem and it's especially useful when you need to log Web Service calls or HTTP requests and responses.}
   s.email = %q{prodis@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
