@@ -7,7 +7,7 @@ LogMe is especially useful when you need to log Web Service calls or HTTP reques
 == Instalation
 
 === Gemfile
-  gem 'log-me'
+  gem 'log-me', '~> 0.0.1'
 
 === Command line
   $ gem install log-me
