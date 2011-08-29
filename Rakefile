@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/prodis/log-me"
   gem.license = "MIT"
   gem.summary = %Q{A simple way to configure log in your gem.}
-  gem.description = %Q{LogMe is a simple way to configure log in your gem and it's especially useful when you need to log Web Service calls or HTTP requests and responses.}
+  gem.description = %Q{LogMe is a simple way to configure log in your gem. It's especially useful when you need to log Web Service calls or HTTP requests and responses.}
   gem.email = "prodis@gmail.com"
   gem.authors = ["Prodis a.k.a. Fernando Hamasaki"]
   gem.version = LogMe::Version::VERSION
