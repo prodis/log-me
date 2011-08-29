@@ -13,9 +13,9 @@ describe LogMe do
 
     context "when log is disabled" do
       around do |example|
-        FakeModule.configure_me { |config| config.log_enabled = false }
+        FakeModule.configure { |config| config.log_enabled = false }
         example.run
-        FakeModule.configure_me { |config| config.log_enabled = true }
+        FakeModule.configure { |config| config.log_enabled = true }
       end
 
       it "returns false" do
@@ -31,9 +31,9 @@ describe LogMe do
 
     context "when log level is set" do
       around do |example|
-        FakeModule.configure_me { |config| config.log_level = :debug }
+        FakeModule.configure { |config| config.log_level = :debug }
         example.run
-        FakeModule.configure_me { |config| config.log_level = :info }
+        FakeModule.configure { |config| config.log_level = :info }
       end
 
       it "returns set level" do
@@ -50,7 +50,7 @@ describe LogMe do
     context "when set logger" do
       it "returns set logger" do
         fake_logger = Class.new
-        FakeModule.configure_me { |config| config.logger = fake_logger }
+        FakeModule.configure { |config| config.logger = fake_logger }
         FakeModule.logger.should == fake_logger
       end
     end
@@ -59,7 +59,7 @@ describe LogMe do
   describe "#log" do
     before :each do
       @log_stream = StringIO.new
-      FakeModule.configure_me { |config| config.logger = ::Logger.new(@log_stream) }
+      FakeModule.configure { |config| config.logger = ::Logger.new(@log_stream) }
     end
 
     context "when log is enabled" do
@@ -76,9 +76,9 @@ describe LogMe do
 
     context "when log is disabled" do
       around do |example|
-        FakeModule.configure_me { |config| config.log_enabled = false }
+        FakeModule.configure { |config| config.log_enabled = false }
         example.run
-        FakeModule.configure_me { |config| config.log_enabled = true }
+        FakeModule.configure { |config| config.log_enabled = true }
       end
 
       it "does not log the message" do
@@ -89,9 +89,9 @@ describe LogMe do
 
     context "when log level is set" do
       around do |example|
-        FakeModule.configure_me { |config| config.log_level = :debug }
+        FakeModule.configure { |config| config.log_level = :debug }
         example.run
-        FakeModule.configure_me { |config| config.log_level = :info }
+        FakeModule.configure { |config| config.log_level = :info }
       end
 
       it "calls log level set method" do

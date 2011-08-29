@@ -28,7 +28,7 @@ module LogMe
   end
 
   module Configuration
-    def configure_me
+    def configure
       yield self if block_given?
     end
   end
