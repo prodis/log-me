@@ -31,10 +31,8 @@ In your gem:
   end
 
 Using your gem:
-```ruby
-some = CoolGem::SomeClass.new
-some.do_something
-```
+  some = CoolGem::SomeClass.new
+  some.do_something
 
 By default will be logged in STDOUT using log level :info:
   I, [2011-08-24T01:22:52.677395 #3026]  INFO -- : I am logging something here.
