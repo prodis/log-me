@@ -65,11 +65,11 @@ describe LogMe do
     context "when log is enabled" do
       it "logs the message" do
         FakeModule.log("Some message to log.")
-        @log_stream.string.should include("Some message to log.")
+        @log_stream.string.should include("Some message to log.\n")
       end
 
       it "calls log level method" do
-        FakeModule.logger.should_receive(:info).with("Some message to log.")
+        FakeModule.logger.should_receive(:info).with("Some message to log.\n")
         FakeModule.log("Some message to log.")
       end
     end
@@ -95,7 +95,7 @@ describe LogMe do
       end
 
       it "calls log level set method" do
-        FakeModule.logger.should_receive(:debug).with("Some message to log.")
+        FakeModule.logger.should_receive(:debug).with("Some message to log.\n")
         FakeModule.log("Some message to log.")
       end
     end

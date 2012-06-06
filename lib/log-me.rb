@@ -20,7 +20,7 @@ module LogMe
   end
 
   def log(message)
-    logger.send log_level, message if log_enabled?
+    logger.send log_level, "#{message}\n" if log_enabled?
   end
 
   def self.extended(base)
