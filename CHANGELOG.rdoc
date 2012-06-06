@@ -1,0 +1,8 @@
+== Version 0.0.3
+- Line break after log message.
+
+== Version 0.0.2
+- Update documentation.
+
+== Version 0.0.1
+- Initial version.

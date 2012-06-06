@@ -4,20 +4,21 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{log-me}
-  s.version = "0.0.2"
+  s.name = "log-me"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Prodis a.k.a. Fernando Hamasaki"]
-  s.date = %q{2011-08-29}
-  s.description = %q{LogMe is a simple way to configure log in your gem. It's especially useful when you need to log Web Service calls or HTTP requests and responses.}
-  s.email = %q{prodis@gmail.com}
+  s.date = "2012-06-06"
+  s.description = "LogMe is a simple way to configure log in your gem. It's especially useful when you need to log Web Service calls or HTTP requests and responses."
+  s.email = "prodis@gmail.com"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
   s.files = [
     ".document",
     ".rspec",
+    "CHANGELOG.rdoc",
     "Gemfile",
     "Gemfile.lock",
     "README.rdoc",
@@ -28,32 +29,26 @@ Gem::Specification.new do |s|
     "spec/log-me_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/prodis/log-me}
+  s.homepage = "http://github.com/prodis/log-me"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.7")
-  s.rubygems_version = %q{1.6.1}
-  s.summary = %q{A simple way to configure log in your gem.}
+  s.rubygems_version = "1.8.16"
+  s.summary = "A simple way to configure log in your gem."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, ["~> 2.6.0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.10"])
     else
-      s.add_dependency(%q<rspec>, ["~> 2.6.0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8"])
+      s.add_dependency(%q<rspec>, ["~> 2.10"])
     end
   else
-    s.add_dependency(%q<rspec>, ["~> 2.6.0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8"])
+    s.add_dependency(%q<rspec>, ["~> 2.10"])
   end
 end
 

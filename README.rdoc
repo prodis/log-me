@@ -7,7 +7,7 @@ LogMe is especially useful when you need to log Web Service calls or HTTP reques
 == Instalation
 
 === Gemfile
-  gem 'log-me', '~> 0.0.2'
+  gem 'log-me'
 
 === Command line
   $ gem install log-me
@@ -50,7 +50,7 @@ Your gem consumer can configure the logger:
 
 {Prodis a.k.a. Fernando Hamasaki}[http://prodis.blog.br]
 
-Copyright (c) 2011 Prodis
+Copyright (c) 2011-2012 Prodis
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
