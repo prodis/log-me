@@ -1,3 +1,6 @@
+== Version 0.0.4
+- Using bundle gem features instead of jeweler to manage and build the gem.
+
 == Version 0.0.3
 - Line break after log message.
 
