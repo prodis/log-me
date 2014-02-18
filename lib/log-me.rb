@@ -1,5 +1,3 @@
-# encoding: UTF-8
-require 'rubygems'
 require 'logger'
 
 module LogMe
