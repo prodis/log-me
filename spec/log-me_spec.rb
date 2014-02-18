@@ -5,97 +5,100 @@ module FakeModule
 end
 
 describe LogMe do
+  let(:subject) { FakeModule }
+
   describe "#log_enabled?" do
     it "default is true" do
-      FakeModule.log_enabled?.should be_true
+      expect(subject).to be_log_enabled
     end
 
     context "when log is disabled" do
       around do |example|
-        FakeModule.configure { |config| config.log_enabled = false }
+        subject.configure { |config| config.log_enabled = false }
         example.run
-        FakeModule.configure { |config| config.log_enabled = true }
+        subject.configure { |config| config.log_enabled = true }
       end
 
       it "returns false" do
-        FakeModule.log_enabled?.should be_false
+        expect(subject).to_not be_log_enabled
       end
     end
   end
 
   describe "#log_level" do
     it "default is info" do
-      FakeModule.log_level.should == :info
+      expect(subject.log_level).to eq :info
     end
 
     context "when log level is set" do
       around do |example|
-        FakeModule.configure { |config| config.log_level = :debug }
+        subject.configure { |config| config.log_level = :debug }
         example.run
-        FakeModule.configure { |config| config.log_level = :info }
+        subject.configure { |config| config.log_level = :info }
       end
 
       it "returns set level" do
-        FakeModule.log_level.should == :debug
+        expect(subject.log_level).to eq :debug
       end
     end
   end
 
   describe "#logger" do
     it "default is Logger" do
-      FakeModule.logger.should be_a(::Logger)
+      expect(subject.logger).to be_a(::Logger)
     end
 
     context "when set logger" do
       it "returns set logger" do
         fake_logger = Class.new
-        FakeModule.configure { |config| config.logger = fake_logger }
-        FakeModule.logger.should == fake_logger
+        subject.configure { |config| config.logger = fake_logger }
+        expect(subject.logger).to eq fake_logger
       end
     end
   end
 
   describe "#log" do
-    before :each do
-      @log_stream = StringIO.new
-      FakeModule.configure { |config| config.logger = ::Logger.new(@log_stream) }
+    let!(:log_stream) { StringIO.new }
+
+    before do
+      subject.configure { |config| config.logger = ::Logger.new(log_stream) }
     end
 
     context "when log is enabled" do
       it "logs the message" do
-        FakeModule.log("Some message to log.")
-        @log_stream.string.should include("Some message to log.\n")
+        subject.log "Some message to log."
+        expect(log_stream.string).to include "Some message to log.\n"
       end
 
       it "calls log level method" do
-        FakeModule.logger.should_receive(:info).with("Some message to log.\n")
-        FakeModule.log("Some message to log.")
+        expect(subject.logger).to receive(:info).with("Some message to log.\n")
+        subject.log "Some message to log."
       end
     end
 
     context "when log is disabled" do
       around do |example|
-        FakeModule.configure { |config| config.log_enabled = false }
+        subject.configure { |config| config.log_enabled = false }
         example.run
-        FakeModule.configure { |config| config.log_enabled = true }
+        subject.configure { |config| config.log_enabled = true }
       end
 
       it "does not log the message" do
-        FakeModule.log("Some message to log.")
-        @log_stream.string.should be_empty
+        subject.log "Some message to log."
+        expect(log_stream.string).to be_empty
       end
     end
 
     context "when log level is set" do
       around do |example|
-        FakeModule.configure { |config| config.log_level = :debug }
+        subject.configure { |config| config.log_level = :debug }
         example.run
-        FakeModule.configure { |config| config.log_level = :info }
+        subject.configure { |config| config.log_level = :info }
       end
 
       it "calls log level set method" do
-        FakeModule.logger.should_receive(:debug).with("Some message to log.\n")
-        FakeModule.log("Some message to log.")
+        expect(subject.logger).to receive(:debug).with("Some message to log.\n")
+        subject.log "Some message to log."
       end
     end
   end
