@@ -1,4 +1,5 @@
 require 'logger'
+require 'logme/configuration'
 
 module LogMe
   attr_writer :log_enabled
@@ -22,12 +23,6 @@ module LogMe
   end
 
   def self.extended(base)
-    base.send :extend, Configuration
-  end
-
-  module Configuration
-    def configure
-      yield self if block_given?
-    end
+    base.send :extend, LogMe::Configuration
   end
 end
