@@ -1,3 +1,7 @@
+== Version 0.0.5
+- Warning: Minimal required Ruby version from now is 1.9.3.
+- New: Label to log messages.
+
 == Version 0.0.4
 - Using bundle gem features instead of jeweler to manage and build the gem.
 
