@@ -45,20 +45,20 @@ describe LogMe do
 
   describe "#log_label" do
     it "default is current module name" do
-      #require 'pry'; binding.pry
       expect(subject.log_label).to eq subject.name
     end
 
     context "when set label" do
+      let(:label) { "Prodis #15" }
+
       around do |example|
-        subject.configure { |config| config.log_level = :debug }
+        subject.configure { |config| config.log_label = label }
         example.run
-        subject.configure { |config| config.log_level = :info }
+        subject.configure { |config| config.log_label = subject.name }
       end
 
       it "returns label" do
-        subject.configure { |config| config.log_label = "Prodis #15" }
-        expect(subject.log_label).to eq "Prodis #15"
+        expect(subject.log_label).to eq label
       end
     end
   end
@@ -82,10 +82,13 @@ describe LogMe do
     let(:label)      { "Cool Label" }
 
     before do
-      subject.configure do |config|
-        config.logger = ::Logger.new(log_stream)
-        config.log_label = label
-      end
+      subject.configure { |config| config.logger = ::Logger.new(log_stream) }
+    end
+
+    around do |example|
+      subject.configure { |config| config.log_label = label }
+      example.run
+      subject.configure { |config| config.log_label = subject.name }
     end
 
     context "when log is enabled" do
