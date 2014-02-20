@@ -2,7 +2,7 @@
 
 A simple way to configure log in your gem.
 
-LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses.
+LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses (using Net::HTTP).
 
 == Instalation
 
@@ -24,7 +24,7 @@ In your gem:
   module CoolGem
     class SomeClass
       def do_something
-        # do something and log
+        # Do something and log
         CoolGem.log "I am logging something here."
       end
     end
@@ -37,6 +37,34 @@ Using your gem:
 By default will be logged in STDOUT using log level :info:
   I, [2011-08-24T01:22:52.677395 #3026]  INFO -- : [CoolGem] I am logging something here.
 
+Logging Net::HTTP requests and responses:
+  module CoolGem
+    class WebService
+      def do_something
+        url = "http://prodis.blog.br"
+
+        # Some logic to create a Net::HTTP request class.
+        request = create_request
+        CoolGem.log_request request, url
+
+        # Some logic to obtain a Net::HTTP response.
+        response = do_request(request, url)
+        CoolGem.log_response response
+      end
+    end
+  end
+
+  ws = CoolGem::WebService.new
+  ws.do_something
+
+In the log:
+  [CoolGem] Request:
+  POST http://prodis.blog.br/some_resource
+  param1=value1&param2=value2
+
+  [CoolGem] Response:
+  HTTP/1.1 201 Created
+
 Your gem consumer can configure the logger:
   CoolGem.configure do |config|
     config.log_enabled = false     # Disable log
@@ -44,6 +72,7 @@ Your gem consumer can configure the logger:
     config.log_label = "CoolLabel" # Change label to log messages
     config.logger = Rails.logger   # Use the Rails logger
   end
+
 
 == Author
 - {Fernando Hamasaki de Amorim (prodis)}[http://prodis.blog.br]

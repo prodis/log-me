@@ -1,3 +1,6 @@
+== Version 0.0.6
+- New: Log formatted request and response messages from Net::HTTP.
+
 == Version 0.0.5
 - Warning: Minimal required Ruby version from now is 1.9.3.
 - New: Label to log messages.
