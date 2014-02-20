@@ -129,4 +129,35 @@ describe LogMe do
       end
     end
   end
+
+  describe "#log_request" do
+    let(:log_stream) { StringIO.new }
+    let(:request)    { double "Request" }
+    let(:url)        { "http://prodis.blog.br" }
+
+    before do
+      subject.configure { |config| config.logger = ::Logger.new(log_stream) }
+    end
+
+    it "logs formatted request message" do
+      LogMe::NetHttpFormatter.any_instance.stub(:format_request).with(request, url).and_return("Request message.")
+      subject.log_request(request, url)
+      expect(log_stream.string).to include "[#{subject.name}] Request message.\n"
+    end
+  end
+
+  describe "#log_response" do
+    let(:log_stream) { StringIO.new }
+    let(:response)   { double "Response" }
+
+    before do
+      subject.configure { |config| config.logger = ::Logger.new(log_stream) }
+    end
+
+    it "logs formatted response message" do
+      LogMe::NetHttpFormatter.any_instance.stub(:format_response).with(response).and_return("Response message.")
+      subject.log_response response
+      expect(log_stream.string).to include "[#{subject.name}] Response message.\n"
+    end
+  end
 end

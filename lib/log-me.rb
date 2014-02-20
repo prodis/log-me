@@ -28,7 +28,21 @@ module LogMe
     logger.send log_level, "[#{log_label}] #{message}\n" if log_enabled?
   end
 
+  def log_request(request, url)
+    log formatter.format_request(request, url)
+  end
+
+  def log_response(response)
+    log formatter.format_response(response)
+  end
+
   def self.extended(base)
     base.send :extend, LogMe::Configuration
+  end
+
+  private
+
+  def formatter
+    @formatter ||= LogMe::NetHttpFormatter.new
   end
 end
