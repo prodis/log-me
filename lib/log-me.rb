@@ -1,5 +1,6 @@
 require 'logger'
 require 'logme/configuration'
+require 'logme/net_http_formatter'
 
 module LogMe
   attr_writer :log_enabled
