@@ -4,6 +4,13 @@ A simple way to configure log in your gem.
 
 LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses (using Net::HTTP).
 
+{<img src="https://badge.fury.io/rb/log-me.png" alt="Gem Version" />}[http://badge.fury.io/rb/log-me]
+{<img src="https://travis-ci.org/prodis/log-me.png?branch=master" alt="Build Status" />}[https://travis-ci.org/prodis/log-me]
+{<img src="https://coveralls.io/repos/prodis/log-me/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/prodis/log-me]
+{<img src="https://codeclimate.com/github/prodis/log-me.png" alt="Code Climate" />}[https://codeclimate.com/github/prodis/log-me]
+{<img src="https://gemnasium.com/prodis/log-me.png" alt="Dependency Status" />}[https://gemnasium.com/prodis/log-me]
+
+
 == Instalation
 
 === Gemfile
