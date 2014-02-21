@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.platform              = Gem::Platform::RUBY
   gem.required_ruby_version = Gem::Requirement.new(">= 1.9.3")
 
+  gem.add_development_dependency "coveralls"
   gem.add_development_dependency "pry"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~> 2.14"
