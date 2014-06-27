@@ -1,3 +1,6 @@
+== Version 0.0.7
+- Minimal required Ruby version is 1.9.2 again.
+
 == Version 0.0.6
 - New: Log formatted request and response messages from Net::HTTP.
 
