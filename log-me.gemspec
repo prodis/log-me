@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.platform              = Gem::Platform::RUBY
-  gem.required_ruby_version = Gem::Requirement.new(">= 1.9.3")
+  gem.required_ruby_version = Gem::Requirement.new(">= 1.9.2")
 
   gem.add_development_dependency "coveralls"
   gem.add_development_dependency "pry"
