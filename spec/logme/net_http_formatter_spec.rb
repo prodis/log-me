@@ -2,14 +2,28 @@ require 'spec_helper'
 
 describe LogMe::NetHttpFormatter do
   describe "#format_request" do
-    let(:request) do
-      double "Net::HTTP::Post", method: "POST", body: "param1=value1&param2=value2"
-    end
-    let(:url) { "http://prodis.blog.br" }
+    context "when request has body" do
+      let(:request) do
+        double "Net::HTTP::Post", method: "POST", body: "param1=value1&param2=value2"
+      end
+      let(:url) { "http://prodis.blog.br" }
 
-    it "formats request message" do
-      expected_message = "Request:\nPOST #{url}\nparam1=value1&param2=value2\n"
-      expect(subject.format_request(request, url)).to eq expected_message
+      it "formats request message including body" do
+        expected_message = "Request:\nPOST #{url}\nparam1=value1&param2=value2\n"
+        expect(subject.format_request(request, url)).to eq expected_message
+      end
+    end
+
+    context "when request does not have body" do
+      let(:request) do
+        double "Net::HTTP::Get", method: "GET", body: nil
+      end
+      let(:url) { "http://prodis.blog.br?s=logme+gem" }
+
+      it "formats request message without body" do
+        expected_message = "Request:\nGET #{url}\n"
+        expect(subject.format_request(request, url)).to eq expected_message
+      end
     end
   end
 

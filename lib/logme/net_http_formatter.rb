@@ -18,11 +18,16 @@ module LogMe
 
     def format_message(http)
       message = yield
-      message << with_line_break { http.body }
+      message << with_line_break { http.body } if has_body?(http)
+      message
     end
 
     def with_line_break
       "#{yield}\n"
+    end
+
+    def has_body?(http)
+      http.body && !http.body.strip.empty?
     end
   end
 end
