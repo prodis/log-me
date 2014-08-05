@@ -1,3 +1,6 @@
+== Version 0.0.8
+- Update: Adjust in log formatting.
+
 == Version 0.0.7
 - Minimal required Ruby version is 1.9.2 again.
 
