@@ -21,11 +21,11 @@ module LogMe
   end
 
   def logger
-    @logger ||= ::Logger.new STDOUT
+    @logger ||= ::Logger.new(STDOUT)
   end
 
   def log(message)
-    logger.send log_level, "[#{log_label}] #{message}" if log_enabled?
+    logger.send(log_level, "[#{log_label}] #{message}") if log_enabled?
   end
 
   def log_request(request, url)
@@ -37,7 +37,7 @@ module LogMe
   end
 
   def self.extended(base)
-    base.send :extend, LogMe::Configuration
+    base.send(:extend, LogMe::Configuration)
   end
 
   private

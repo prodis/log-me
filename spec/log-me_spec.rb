@@ -132,7 +132,7 @@ describe LogMe do
 
   describe '#log_request' do
     let(:log_stream) { StringIO.new }
-    let(:request)    { double 'Request' }
+    let(:request)    { double('Request') }
     let(:url)        { 'http://prodis.blog.br' }
 
     before do
@@ -148,7 +148,7 @@ describe LogMe do
 
   describe '#log_response' do
     let(:log_stream) { StringIO.new }
-    let(:response)   { double 'Response' }
+    let(:response)   { double('Response') }
 
     before do
       subject.configure { |config| config.logger = ::Logger.new(log_stream) }
