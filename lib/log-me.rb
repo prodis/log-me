@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'logger'
 require 'logme/configuration'
 require 'logme/formatter/net_http'

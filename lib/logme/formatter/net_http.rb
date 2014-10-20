@@ -1,3 +1,4 @@
+# encoding: utf-8
 module LogMe
   module Formatter
     class NetHttp
