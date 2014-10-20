@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LogMe::NetHttpFormatter do
+describe LogMe::Formatter::NetHttp do
   describe '#format_request' do
     context 'when request has body' do
       let(:request) do
