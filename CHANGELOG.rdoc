@@ -1,3 +1,6 @@
+== Version 0.0.9
+- New: Support to log RestClient requests and responses.
+
 == Version 0.0.8
 - Update: Adjust in log formatting.
 
