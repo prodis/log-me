@@ -17,9 +17,9 @@ describe LogMe::HttpFormatter do
         end
       end
 
-      context 'and responds to payload method' do
+      context 'and responds to args method' do
         let(:request) do
-          double('RestClient::Request', method: :post, payload: 'param1=value1&param2=value2')
+          double('RestClient::Request', method: :post, args: { payload: 'param1=value1&param2=value2' })
         end
 
         it 'formats request message including body' do
@@ -43,9 +43,9 @@ describe LogMe::HttpFormatter do
         end
       end
 
-      context 'and responds to payload method' do
+      context 'and responds to args method' do
         let(:request) do
-          double('RestClient::Request', method: :get, payload: nil)
+          double('RestClient::Request', method: :get, args: {})
         end
 
         it 'formats request message without body' do

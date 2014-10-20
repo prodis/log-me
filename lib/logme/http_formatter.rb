@@ -30,7 +30,7 @@ module LogMe
 
     def extract_body_from(http)
       return http.body if http.respond_to?(:body)
-      return http.payload if http.respond_to?(:payload)
+      return http.args[:payload] if http.respond_to?(:args)
       return nil
     end
 
