@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'logger'
 require 'logme/configuration'
-require 'logme/formatter/net_http'
+require 'logme/http_formatter'
 
 module LogMe
   attr_writer :log_enabled
@@ -44,6 +44,6 @@ module LogMe
   private
 
   def formatter
-    @formatter ||= LogMe::Formatter::NetHttp.new
+    @formatter ||= LogMe::HttpFormatter.new
   end
 end

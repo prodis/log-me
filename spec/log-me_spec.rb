@@ -141,7 +141,7 @@ describe LogMe do
     end
 
     it 'logs formatted request message' do
-      allow_any_instance_of(LogMe::Formatter::NetHttp).to receive(:format_request).with(request, url).and_return('Request message.')
+      allow_any_instance_of(LogMe::HttpFormatter).to receive(:format_request).with(request, url).and_return('Request message.')
       subject.log_request(request, url)
       expect(log_stream.string).to include "[#{subject.name}] Request message.\n"
     end
@@ -156,7 +156,7 @@ describe LogMe do
     end
 
     it 'logs formatted response message' do
-      allow_any_instance_of(LogMe::Formatter::NetHttp).to receive(:format_response).with(response).and_return('Response message.')
+      allow_any_instance_of(LogMe::HttpFormatter).to receive(:format_response).with(response).and_return('Response message.')
       subject.log_response response
       expect(log_stream.string).to include "[#{subject.name}] Response message.\n"
     end
