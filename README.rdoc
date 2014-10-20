@@ -2,7 +2,7 @@
 
 A simple way to configure log in your gem.
 
-LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses (using Net::HTTP).
+LogMe is especially useful when you need to log Web Service calls or HTTP requests and responses, using Net::HTTP or RestClient.
 
 {<img src="https://badge.fury.io/rb/log-me.png" alt="Gem Version" />}[http://badge.fury.io/rb/log-me]
 {<img src="https://travis-ci.org/prodis/log-me.png?branch=master" alt="Build Status" />}[https://travis-ci.org/prodis/log-me]
@@ -57,6 +57,30 @@ Logging Net::HTTP requests and responses:
         # Some logic to obtain a Net::HTTP response.
         response = do_request(request, url)
         CoolGem.log_response response
+
+        response
+      end
+    end
+  end
+
+  ws = CoolGem::WebService.new
+  ws.do_something
+
+Logging RestClient requests and responses:
+  module CoolGem
+    class WebService
+      def do_something
+        args = {
+          method: :post,
+          url: "http://prodis.blog.br",
+          payload: 'param1=value1&param2=value2'
+        }
+
+        RestClient::Request.execute(args) do |response, request, result|
+          CoolGem.log_request request, args[:url]
+          CoolGem.log_response result
+          response
+        end
       end
     end
   end
