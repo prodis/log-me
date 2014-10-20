@@ -2,14 +2,14 @@ module LogMe
   class NetHttpFormatter
     def format_request(request, url)
       message = format_message(request) do
-        message =  with_line_break { "Request:" }
+        message =  with_line_break { 'Request:' }
         message << with_line_break { "#{request.method} #{url}" }
       end
     end
 
     def format_response(response)
       message = format_message(response) do
-        message =  with_line_break { "Response:" }
+        message =  with_line_break { 'Response:' }
         message << with_line_break { "HTTP/#{response.http_version} #{response.code} #{response.message}" }
       end
     end
