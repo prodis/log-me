@@ -25,7 +25,7 @@ module LogMe
   end
 
   def log(message)
-    logger.send log_level, "[#{log_label}] #{message}\n" if log_enabled?
+    logger.send log_level, "[#{log_label}] #{message}" if log_enabled?
   end
 
   def log_request(request, url)

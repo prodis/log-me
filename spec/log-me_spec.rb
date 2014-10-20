@@ -94,11 +94,11 @@ describe LogMe do
     context "when log is enabled" do
       it "logs the message" do
         subject.log "Some message to log."
-        expect(log_stream.string).to include "[#{label}] Some message to log.\n"
+        expect(log_stream.string).to include "[#{label}] Some message to log."
       end
 
       it "calls log level method" do
-        expect(subject.logger).to receive(:info).with("[#{label}] Some message to log.\n")
+        expect(subject.logger).to receive(:info).with("[#{label}] Some message to log.")
         subject.log "Some message to log."
       end
     end
@@ -124,7 +124,7 @@ describe LogMe do
       end
 
       it "calls log level set method" do
-        expect(subject.logger).to receive(:debug).with("[#{label}] Some message to log.\n")
+        expect(subject.logger).to receive(:debug).with("[#{label}] Some message to log.")
         subject.log "Some message to log."
       end
     end
