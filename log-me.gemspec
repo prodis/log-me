@@ -2,26 +2,26 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'logme/version'
 
-Gem::Specification.new do |gem|
-  gem.name        = "log-me"
-  gem.version     = LogMe::VERSION
-  gem.authors     = ["Prodis a.k.a. Fernando Hamasaki de Amorim"]
-  gem.email       = ["prodis@gmail.com"]
-  gem.summary     = "A simple way to configure log in your gem."
-  gem.description = "LogMe is a simple way to configure log in your gem. It's especially useful when you need to log Web Service calls or HTTP requests and responses."
-  gem.homepage    = "http://github.com/prodis/log-me"
-  gem.licenses    = ["MIT"]
+Gem::Specification.new do |spec|
+  spec.name        = 'log-me'
+  spec.version     = LogMe::VERSION
+  spec.authors     = ['Prodis a.k.a. Fernando Hamasaki de Amorim']
+  spec.email       = ['prodis@gmail.com']
+  spec.summary     = 'A simple way to configure log in your spec.'
+  spec.description = 'LogMe is a simple way to configure log in your spec. It is especially useful when you need to log Web Service calls or HTTP requests and responses.'
+  spec.homepage    = 'http://github.com/prodis/log-me'
+  spec.licenses    = ['MIT']
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split($\)
+  spec.executables   = spec.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
 
-  gem.platform              = Gem::Platform::RUBY
-  gem.required_ruby_version = Gem::Requirement.new(">= 1.9.2")
+  spec.platform              = Gem::Platform::RUBY
+  spec.required_ruby_version = Gem::Requirement.new('>= 1.9.2')
 
-  gem.add_development_dependency "coveralls"
-  gem.add_development_dependency "pry"
-  gem.add_development_dependency "rake"
-  gem.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rake', '~> 10'
+  spec.add_development_dependency 'rspec', '~> 3.1.0'
 end
