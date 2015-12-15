@@ -17,8 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = Gem::Requirement.new('>= 1.9.3')
+  spec.platform = Gem::Platform::RUBY
 
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'pry'
