@@ -1,3 +1,6 @@
+== Version 0.0.10
+- Warning: No minimal required Ruby version.
+
 == Version 0.0.9
 - New: Support to log RestClient requests and responses.
 - Warning: Minimal required Ruby version from now is 1.9.3.
